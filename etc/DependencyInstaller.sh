@@ -134,7 +134,9 @@ _installUbuntuPackages() {
         zlib1g-dev
 
     # install KLayout
-    if  [[ $1 == "rodete" ]]; then
+    if command -v klayout &> /dev/null; then
+        echo "KLayout is already installed, skipping installation."
+    elif [[ $1 == "rodete" ]]; then
         apt-get -y install --no-install-recommends klayout python3-pandas
     elif _versionCompare "$1" -ge 23.04; then
         apt-get -y install --no-install-recommends klayout python3-pandas
@@ -155,7 +157,7 @@ _installUbuntuPackages() {
                 ./build.sh -bin "${klayoutPrefix}"
             else
                 echo "Klayout is already installed"
-        fi
+            fi
         else
             if [[ $1 == 20.04 ]]; then
                 klayoutChecksum=15a26f74cf396d8a10b7985ed70ab135

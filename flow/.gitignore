@@ -4,3 +4,4 @@ vars.gdb
 vars.tcl
 .user-bazelrc
 bazel-*
+local_scripts

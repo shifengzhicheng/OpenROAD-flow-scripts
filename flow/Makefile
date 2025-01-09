@@ -20,7 +20,7 @@
 # DESIGN_CONFIG=./designs/nangate45/jpeg/config.mk
 # DESIGN_CONFIG=./designs/nangate45/mempool_group/config.mk
 # DESIGN_CONFIG=./designs/nangate45/swerv/config.mk
-# DESIGN_CONFIG=./designs/nangate45/swerv_wrapper/config.mk
+DESIGN_CONFIG=./designs/nangate45/swerv_wrapper/config.mk
 # DESIGN_CONFIG=./designs/nangate45/tinyRocket/config.mk
 
 # DESIGN_CONFIG=./designs/tsmc65lp/aes/config.mk
@@ -1074,8 +1074,8 @@ test-unset-and-make-%: ; $(UNSET_AND_MAKE) $*
 klayout:
 	$(KLAYOUT_CMD)
 
-.PHONY: do-GPLEND
-do-GPLEND: synth floorplan place
+.PHONY: GPLEND
+GPLEND: synth floorplan place
 
 .phony: run
 run:
